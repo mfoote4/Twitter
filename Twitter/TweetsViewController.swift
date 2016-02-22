@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDataSource {
 
     var tweets: [Tweet]?
     
@@ -19,15 +19,22 @@ class TweetsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //tableView.dataSource = self
+        tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 200
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshedTimelineTweets", name: "refreshedTimelineTweets", object: nil)
-        TwitterClient.sharedInstance.getTweets()
+        //TwitterClient.sharedInstance.getTweets()
+        
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: {(tweets,
+            error) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+            
+        })
     }
     
     func refreshedTimelineTweets() {
@@ -46,6 +53,29 @@ class TweetsViewController: UIViewController {
     
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
+    }
+    
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+       
+        print(self.tweets?.count)
+        if self.tweets != nil {
+            return (self.tweets?.count)!
+        } else {
+            return 0
+        }
+        
+        //return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as? TweetCell
+        
+    
+       cell!.tweet = tweets![indexPath.row]
+        
+        return cell!
     }
 
     /*

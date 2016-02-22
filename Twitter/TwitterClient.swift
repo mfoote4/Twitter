@@ -25,7 +25,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
-        GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+        GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
             // print("home timeline: \(response)")
             let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
             completion(tweets: tweets, error: nil)
@@ -48,7 +48,7 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     }
     
-    func getTweets() {
+  /*  func getTweets() {
         //Tweet.timelineTweets = nil
         TwitterClient.sharedInstance.GET(
             "1.1/statuses/home_timeline.json",
@@ -62,7 +62,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("failed to get current user")
             }
         )
-    }
+    }*/
 
     
     func openURL(url: NSURL) {

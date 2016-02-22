@@ -20,31 +20,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Twitter.User.__deallocating_deinit"
+                  symbolName = "globalinit_33_58E53478CA788A8929047DF7C1488EEB_func0"
                   moduleName = "Twitter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelafoote/Documents/CodePath/Twitter/Twitter/User.swift"
-                  timestampString = "477624491.443552"
+                  timestampString = "477789485.500218"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "4">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Twitter.User.init (Twitter.User.Type)() -&gt; Twitter.User"
+                  symbolName = "Twitter._currentUser.unsafeMutableAddressor : Swift.Optional&lt;Twitter.User&gt;"
                   moduleName = "Twitter"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelafoote/Documents/CodePath/Twitter/Twitter/User.swift"
-                  timestampString = "477624491.443812"
+                  timestampString = "477789485.500612"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
          </BreakpointContent>
