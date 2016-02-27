@@ -14,6 +14,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var profilepicView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var retweetLabel: UILabel!
+    @IBOutlet weak var favoriteLabel: UILabel!
     
     
     var tweet: Tweet! {
@@ -21,36 +23,25 @@ class TweetCell: UITableViewCell {
             statusLabel.text = tweet.text
             profilepicView.setImageWithURL(NSURL(string:
                 (tweet.user?.profileImageUrl)!)!)
+            profilepicView.layer.cornerRadius = 9.0
             nameLabel.text = tweet.user?.name
             timeLabel.text = tweet.createdAtString
-            //retweetLabel.text = "Retweet"
-    
-            /*if (tweet?.retweetCount)! == true {
-                retweetLabel.text = "retweet"
-            }
-            else {
-                retweetLabel.hidden = true
-        
-      /*  if (tweet?.favoriteCount)! == true {
-            favoriteLabel.text = "favorite"
-            
+            favoriteLabel.text = String(tweet.favoriteCount!)
+            retweetLabel.text = String(tweet.retweetCount!)
         }
-        else {
-            favoriteLabel.hidden = true
-        }*/
-    }*/
-  }
 }
 
     
     @IBAction func retweetButton(sender: AnyObject) {
         
        sender.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        retweetLabel.text = String(tweet.retweetCount!+1)
     }
     
     @IBAction func favoriteButton(sender: AnyObject) {
         
         sender.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        favoriteLabel.text = String(tweet.favoriteCount!+1)
     }
     
     @IBOutlet weak var favoriteButton: UIButton!
