@@ -8,15 +8,14 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController, UITextViewDelegate {
+class ComposeViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       self.profileImage.setImageWithURL(User.currentUser?.profileImageUrl)
-        self.profileImage.layer.cornerRadius = 9.0
+       
         // Do any additional setup after loading the view.
     }
 
