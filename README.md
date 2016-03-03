@@ -1,6 +1,6 @@
 # Project 5 - *Michaela Foote*
 
-Time spent: **29** hours spent in total
+Time spent: **38** hours spent in total
 
 ## User Stories
 
