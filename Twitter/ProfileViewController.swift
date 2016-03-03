@@ -42,13 +42,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.user = tweet.user
             }
             
-            self.tweetsLabel.text = String(self.user!.numberTweets)
-            self.followingLabel.text = String(self.user!.numberFollowing)
-            self.followersLabel.text = String(self.user!.numberFollowers)
+            self.tweetsLabel.text = String(self.user!.numberTweets!)
+            self.followingLabel.text = String(self.user!.numberFollowing!)
+            self.followersLabel.text = String(self.user!.numberFollowers!)
             self.handleLabel.text = "@" + String(self.user!.screenname!)
             self.nameHead.text = String(self.user!.name!)
-            //self.profilepicLarge.setImageWithURL(NSURL(string: self.user!.profileImageBackgroundURL!)!)
-           // self.profilepicLarge.setImageWithURL(NSURL(string: self.user!.profileImageBackgroundURL!)!)
+            self.profilepicLarge.setImageWithURL(NSURL(string: self.user!.profileImageUrl!)!)
+            self.backgroundImage.setImageWithURL(NSURL(string: self.user!.profileImageBackgroundUrl!)!)
             
             
             self.tableView.reloadData()

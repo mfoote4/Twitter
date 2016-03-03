@@ -16,7 +16,7 @@ class ReplyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        replyText.text = "@" + username!
+        //replyText.text = "@" + username!
         // Do any additional setup after loading the view.
     }
 
