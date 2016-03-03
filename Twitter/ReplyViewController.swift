@@ -10,9 +10,13 @@ import UIKit
 
 class ReplyViewController: UIViewController {
 
+    @IBOutlet weak var replyText: UITextView!
+    var id: Int?
+    var username: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        replyText.text = "@" + username!
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +25,11 @@ class ReplyViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func onReply(sender: AnyObject) {
+    
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     /*
     // MARK: - Navigation
 

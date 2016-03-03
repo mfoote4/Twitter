@@ -24,7 +24,7 @@ class TweetCell: UITableViewCell {
             profilepicView.setImageWithURL(NSURL(string:
                 (tweet.user?.profileImageUrl)!)!)
             profilepicView.layer.cornerRadius = 9.0
-            nameLabel.text = tweet.user?.name
+            nameLabel.text = tweet.user?.name as String?
             timeLabel.text = tweet.createdAtString
             favoriteLabel.text = String(tweet.favoriteCount!)
             retweetLabel.text = String(tweet.retweetCount!)

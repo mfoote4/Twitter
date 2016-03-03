@@ -10,13 +10,23 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
-    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var textView: UITextView!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+         textView.resignFirstResponder()
        
         // Do any additional setup after loading the view.
+    }
+    
+    
+   
+    @IBAction func onTweet(sender: AnyObject) {
+            TwitterClient.sharedInstance.tweet(self.textView.text!)
+            
+        
     }
 
     override func didReceiveMemoryWarning() {
